@@ -62,7 +62,7 @@
             }
         ],
         "sitemap": {
-            "baseUrl": "https://rod1992.github.io/",
+            "baseUrl": "https://rod1992.github.io/TestDocFX",
             "changefreq": "weekly",
             "fileOptions": {
                 "api/*": {
