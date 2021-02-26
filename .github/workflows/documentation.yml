@@ -1,4 +1,4 @@
-name: Example documentation
+name: Generate Documentation
 
 on:
   push:
@@ -40,7 +40,7 @@ jobs:
 
       # Download the generated documentation
       - name: Download site artifact
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: _site
 
