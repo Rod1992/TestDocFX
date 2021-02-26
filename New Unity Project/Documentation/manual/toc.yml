@@ -1,0 +1,26 @@
+- name: Home
+  href: Home.md
+- name: Add a new decor
+  href: Add-a-new-decor.md
+- name: Boat Configuration
+  href: BoatConfig.md
+- name: Boat Engine
+  href: BoatEngine.md
+- name: Build and deploy AssetBundles
+  href: Build-and-deploy-AssetBundles.md
+- name: Build and deploy for Android
+  href: Build-and-deploy-for-Android.md
+- name: Build and deploy for iOS
+  href: Build-and-deploy-for-iOS.md
+- name: Build and deploy for WebGL
+  href: Build-and-deploy-for-WebGL.md
+- name: Création Arena
+  href: Creation-Arena.md
+- name: Import a new Boat
+  href: Import-a-new-Boat.md
+- name: Plugin List
+  href: Plugin-List.md
+- name: Race Editor
+  href: Race-Editor.md
+- name: Wind Generator
+  href: Wind-generator.md
