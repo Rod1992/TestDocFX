@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Localisation | Test DocFx Unity Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Localisation | Test DocFx Unity Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="localisation">Localisation</h1>
+
+<h2 id="client">Client:</h2>
+<blockquote><p>Git: <a href="https://github.com/virtualregatta/VRI2K16">https://github.com/virtualregatta/VRI2K16</a><br>Chemin: proto/src/client/unity/Assets/Scripts/Simulation/Boat/Engine/BoatConfig.cs</p>
+</blockquote>
+<p>Serveur:</p>
+<blockquote><p>Git: <a href="https://github.com/virtualregatta/VRI2k16-Photon-Server">https://github.com/virtualregatta/VRI2k16-Photon-Server</a><br>Chemin: src/server/VRI2k16.Common/Config/BoatConfig.cs </p>
+</blockquote>
+<h1 id="structure">Structure</h1>
+<p>La configuration des bateaux sur VRI est structurée autour des différentes composantes du moteur (BoatEngine), auxquelles viennent s’ajouter d’autres informations qui ne sont pas directement liées au moteur.<br>Les données de configuration de bateau sont donc scindées en 10 parties, dont 6 correspondent aux 6 composantes moteurs:  </p>
+<ul>
+<li>Données générales (utilisation diverse, serveur/client)</li>
+<li>Données de contour (utilisées dans le système de collisions, serveur)</li>
+<li>Données de voiles (utilisées par le moteur, serveur/client)</li>
+<li>Données de pénalité (utilisées par le moteur, serveur/client)</li>
+<li>Données du choqué des voiles (utilisées par le moteur, serveur/client)</li>
+<li>Données de rotation (utilisées par le moteur, serveur/client)</li>
+<li>Données d’avancement (utilisées par le moteur, serveur/client)</li>
+<li>Données de dérive (utilisées par le moteur, serveur/client)</li>
+<li>Données de vol (utilisées par le client)</li>
+<li><p>Données d’améliorations du bateau (dépréciées, précédemment utilisées par le moteur, serveur/client)
+</p>
+<h1 id="détail-de-la-configuration">Détail de la configuration</h1>
+<h3 id="données-générales-utilisation-diverse-serveurclient">Données générales (utilisation diverse, serveur/client)</h3>
+<p>  [XmlElement(“general”)] public GeneralSetup General = new GeneralSetup();</p>
+</li>
+</ul>
+<p>Contient:</p>
+<ul>
+<li>[expert] EngineStepMs: Le delta temps entre deux appels du Run du moteur (par défaut 33 ms)</li>
+<li>BoatId: L’identifiant du bateau</li>
+<li>Name: Le nom du bateau</li>
+<li>HullLengthMeters: La longueur du bateau (hors-tout)</li>
+<li>HullWidthMeters: La largeur du bateau (hors membres)</li>
+<li>VisualScaling: L’échelle de présentation du bateau (par défaut 0.5, soit 50%)</li>
+<li>[expert] UnityTag: Le tag du bateau pour les assets bundles (client)</li>
+<li>[expert] UnityPrefabName: Le nom du prefab du bateau pour les assets bundles (client)</li>
+<li>[expert] SternMaxPercent: Le pourcentage de longueur pour considérer le chevauchement au niveau de la poupe du bateau</li>
+<li>[expert] MatchRaceCourseId: L’identifiant de parcours préférentiel pour les challenges de type Match.</li>
+<li>[expert] TrainingChallengeId: L’identifiant du challenge d&#39;entraînement lié au bateau.</li>
+<li>[expert] PrivateChallengeId: L’identifiant du challenge de courses privées lié au bateau.</li>
+</ul>
+<h3 id="données-de-contour-utilisées-dans-le-système-de-collisions-serveur">Données de contour (utilisées dans le système de collisions, serveur)</h3>
+<pre><code>[XmlElement(“outline”)] public OutlineSetup Outline = new OutlineSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>PointsUpwind: Les points définissant le contour du bateau au près (ie en foc).</li>
+<li>PointsDownwind: Les points définissant le contour du bateau au portant (ie en spi).</li>
+</ul>
+<p><strong>Note</strong>: la forme peut changer selon le type de voile déployée (comme par exemple avec un bout dehors amovible/rétractable).</p>
+<p></p>
+<h3 id="données-de-voiles-utilisées-par-le-moteur-serveurclient">Données de voiles (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(“sails”)] public SailsSetup Sails = new SailsSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>[expert] Jib: Les polaires du foc, soit un ou plusieurs tableaux (un pour chaque vitesse de vent arbitrairement définie) de 181 valeurs de vitesse (une par angle TWA, de 0 à 180 inclus).</li>
+<li>[expert] Gennaker: Les polaires du spi, soit un ou plusieurs tableaux (un pour chaque vitesse de vent arbitrairement définie) de 181 valeurs de vitesse (une par angle TWA, de 0 à 180 inclus).</li>
+<li>[expert] HasGennaker: Le flag (bool) définissant si le bateau a ou non un spi.</li>
+<li>SailsSwitchTimeS: Le temps de changement de voile.</li>
+<li>[expert] Flap: Les données de fasseyement (angles TWA seuils, au près et portant pour le spi, au près pour le foc).  </li>
+</ul>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>Si le bateau n’a pas de spi, le changement de voile ne pouvant pas se faire, les polaires Gennaker seront ignorées.</li>
+</ul>
+<h3 id="données-de-pénalité-utilisées-par-le-moteur-serveurclient">Données de pénalité (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(“penalty”)] public PenaltySetup Sails = new PenaltySetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>SpeedRatio: Le facteur de vitesse à appliquer lors d’un pénalité.</li>
+<li>[expert] DecelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence de la pénalité, au moment de l’application de la pénalité (plus elle est grande, plus le bateau ralentit rapidement)</li>
+<li>[expert] AccelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence de la pénalité au moment de sortir de la pénalité (plus elle est grande, plus le bateau ré-accélère rapidement)</li>
+<li>DurationS: La durée de la pénalité en secondes.</li>
+</ul>
+<p></p>
+<h3 id="données-du-choqué-des-voiles-utilisées-par-le-moteur-serveurclient">Données du choqué des voiles (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(“trim”)] public TrimSetup Outline = new TrimSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>[expert] SpeedRatio: Le facteur de vitesse à appliquer lors du choqué des voiles (tous les bateaux sont à 0 par défaut)</li>
+<li>[expert] DecelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence du choqué des voiles, au moment de l’application du choqué des voiles (plus elle est grande, plus le bateau ralentit rapidement).</li>
+<li>[expert] AccelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence du choqué des voiles, au moment de re-border les voiles (plus elle est grande, plus le bateau ré-accélère rapidement)</li>
+<li>[expert] RatioMultiplicatorOverTwa: Un tableau de 181 valeurs (une par degré TWA entre 0 et 180 inclus) définissant la variation de la valeur maximale d’influence du choqué des voiles en fonction de l&#39;angle au vent.</li>
+</ul>
+<p><strong>Note</strong>: Ces valeurs n’ont pas vraiment vocation à changer d’un bateau à l’autre, mais sont utiles pour avoir un comportement plus crédible sur l’ensemble des bateaux.</p>
+<h3 id="données-de-rotation-utilisées-par-le-moteur-serveurclient">Données de rotation (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(“rotation”)] public RotationSetup Rotation = new RotationSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>BaseSpeed: La vitesse de rotation cible de référence en degrés/seconde</li>
+<li>[expert] TapForcedSpeed: La vitesse de rotation forcée pour le contrôle au tap degré par degré.</li>
+<li>BaseAccelerationDamping: La valeur d’amortissement pour l’accélération (plus elle est grande, plus l’accélération est forte - pour atteindre une vitesse cible supérieure à celle de l’état de bateau précédent).</li>
+<li>BaseDecelerationDamping: La valeur d’amortissement pour la décélération (plus elle est grande, plus la décélération est forte - pour atteindre un vitesse cible inférieure à celle de l’état de bateau précédent).</li>
+<li>[expert] MinSpeedPercent: Le pourcentage de la vitesse cible de référence définissant la vitesse de rotation minimum du bateau.</li>
+<li>[expert] AdvanceSpeedRefKnots: La vitesse d’avancement référence pour mettre la vitesse de rotation à l’échelle (la vitesse d’avancement du bateau influe sur la vitesse de rotation du bateau).</li>
+<li>[expert] AccelerationDampingRatioOverTwa: Un tableau de 181 valeurs (une par degré TWA entre 0 et 180 inclus) définissant la variation de la valeur maximale d’amortissement pour l’accélération par rapport à l’angle au vent.</li>
+<li>Note: Ces valeurs peuvent être considérées comme constantes, et pour changer significativement la dynamique du bateau, mieux vaut modifier BaseAccelerationDamping.</li>
+<li>[expert] DecelerationDampingRatioOverTwa: Un tableau de 181 valeurs (une par degré TWA entre 0 et 180 inclus) définissant la variation de la valeur maximale d’amortissement pour l’accélération par rapport à l’angle au vent.</li>
+<li>Note: Ces valeurs peuvent être considérées comme constantes, et pour changer significativement la dynamique du bateau, mieux vaut modifier BaseDecelerationDamping.</li>
+<li>[expert] AutoSimulationMaxNumIterations: Le nombre maximum d’itérations pour simuler la rotation automatisée du bateau (pour l’auto TWA et l’auto tack).</li>
+<li>[expert] TwaTargetAngleDegreesStopThreshold: La différence d’angle en deçà de laquelle le bateau se cale sur l’angle cible en cas de rotation automatisée du bateau (pour l’auto TWA et l’auto tack)</li>
+<li>[expert] PanicModeMaxRotationSpeed: (client uniquement) La valeur max de vitesse de rotation en deçà de laquelle le bouton du “mode panique” peut apparaître dans l’interface du jeu en course.</li>
+<li>[expert] PanicModeHeadingDegrees: La valeur de cap sur laquelle se cale instantanément le bateau quand le “mode panique” est enclenché.</li>
+</ul>
+<p><strong>Note</strong>: Cette valeur est en fait ajoutée (ou retirée, en fonction du signe du TWA courant sur [-180; 180]) à celle de l’azimut du vent (TWD) pour définir le cap de sortie.</p>
+<pre><code>boatState.Rotation.HeadingDegrees = (boatState.Wind.TwaDegrees &lt; 0f) ? boatConfig.Rotation.PanicModeHeadingDegrees + boatState.Wind.TwdDegrees : -boatConfig.Rotation.PanicModeHeadingDegrees + boatState.Wind.TwdDegrees;
+</code></pre><ul>
+<li>[expert] SpeedTresholdForManeuver: (pour les règles uniquement) La valeur seuil de vitesse de rotation du bateau au delà de laquelle le joueur est considéré comme en train de manoeuvrer.</li>
+</ul>
+<p></p>
+<h3 id="données-davancement-utilisées-par-le-moteur-serveurclient">Données d’avancement (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(“advance”)] public AdvanceSetup Advance = new AdvanceSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>BaseAccelerationDamping: La valeur d’amortissement pour l’accélération (plus elle est grande, plus l’accélération est forte - pour atteindre une vitesse cible supérieure à celle de l’état de bateau précédent).</li>
+<li>BaseDecelerationDamping: La valeur d’amortissement pour la décélération (plus elle est grande, plus la décélération est forte - pour atteindre un vitesse cible inférieure à celle de l’état de bateau précédent).</li>
+<li>AccelerationDampingRatioOverTwa: Un tableau de 181 valeurs (une par degré TWA entre 0 et 180 inclus) définissant la variation de la valeur maximale d’amortissement pour l’accélération par rapport à l’angle au vent.</li>
+<li>Note: Ces valeurs peuvent être considérées comme constantes, et pour changer significativement la dynamique du bateau, mieux vaut modifier BaseAccelerationDamping.</li>
+<li>DecelerationDampingRatioOverTwa: Un tableau de 181 valeurs (une par degré TWA entre 0 et 180 inclus) définissant la variation de la valeur maximale d’amortissement pour la décélération par rapport à l’angle au vent.</li>
+<li>Note: Ces valeurs peuvent être considérées comme constantes, et pour changer significativement la dynamique du bateau, mieux vaut modifier BaseDecelerationDamping.</li>
+<li>[expert] SpeedFactor: Un facteur de vitesse à appliquer à la vitesse d’avancement en sortie (1 par défaut).</li>
+</ul>
+<p></p>
+<h3 id="données-de-dérive-utilisées-par-le-moteur-serveurclient">Données de dérive (utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(&quot;drift&quot;)] public DriftSetup Drift = new DriftSetup();
+</code></pre><p>Contient:</p>
+<ul>
+<li>[expert] AccelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence de la dérive au moment de sortir de dérive, c’est à dire quand on dépasse un certain seuil de vitesse d’avancement du bateau (plus cette valeur est grande, plus le bateau repart rapidement).</li>
+<li>[expert] DecelerationDamping: La valeur d’amortissement pour le calcul du facteur d’influence de la dérive au moment de dériver, c’est à dire quand on passe en dessous d’un certain seuil de vitesse d’avancement du bateau (plus cette valeur est grande, plus le bateau atteint sa vitesse de dérive cible rapidement).</li>
+<li>[expert] SpeedKnotsThreshold: Le seuil de vitesse en deçà duquel le bateau part à la dérive.</li>
+<li>MaxSpeedKnots: La valeur maximale de vitesse de dérive.</li>
+<li>[expert] WindSpeedReferenceKnots: La valeur de vitesse de vent référence pour mettre à l’échelle la vitesse de dérive (le TWS influe sur la vitesse de dérive).</li>
+</ul>
+<h3 id="données-de-vol-utilisées-par-le-client">Données de vol (utilisées par le client)</h3>
+<pre><code>[XmlElement(&quot;fly&quot;)] public FlySetup Fly = new FlySetup();
+</code></pre><ul>
+<li>[expert] SpeedKnotsThreshold: La vitesse d’avancement seuil au delà de laquelle le bateau se met à voler (utilisée pour des bateaux tels que le Nacra 17 et le Formula 18).</li>
+<li>Note: si cette valeur est à 0, le bateau ne vole pas.</li>
+<li>[expert] HeightMeters: La hauteur à laquelle le bateau vole quand il vole.</li>
+<li>[expert] AccelerationDamping: La valeur d’amortissement pour l’accélération ET la décélération (plus elle est grande plus le bateau décolle/atterrit vite).</li>
+</ul>
+<p></p>
+<h3 id="données-daméliorations-du-bateau-dépréciées-précédemment-utilisées-par-le-moteur-serveurclient">Données d’améliorations du bateau (dépréciées, précédemment utilisées par le moteur, serveur/client)</h3>
+<pre><code>[XmlElement(&quot;upgrade&quot;)] public UpgradeSetup Upgrade = new UpgradeSetup();
+</code></pre><ul>
+<li><em>BoatAdvSpeedUpwindModStep</em>: La valeur en pourcentage de vitesse au près ajoutée à chaque pas d’amélioration.</li>
+<li><em>BoatAdvSpeedDownwindModStep</em>: La valeur en pourcentage de vitesse au portant ajoutée à chaque pas d’amélioration.</li>
+<li><em>BoatRotModStep</em>: La valeur en pourcentage de vitesse de rotation ajoutée à chaque pas d’amélioration.</li>
+<li><em>BoatSailSwitchTimeModStep</em>: La valeur de temps en secondes retirée au temps total de changement de voile du bateau à chaque pas d’amélioration.</li>
+</ul>
+<p>Note: si ce temps est inférieur ou égal à 0, la voile change instantanément.</p>
+<h1 id="notes-générales">Notes générales</h1>
+<ul>
+<li>Les classes de configuration du client et du serveur sont identiques.</li>
+<li>Les données d’amélioration du bateau ne sont plus utilisées car on ne peut plus améliorer ses bateaux dans le jeu. Elle pourraient être retirées.</li>
+<li>Le TWA et le cap sont exprimés en degrés dans l’intervalle [-180, 180]</li>
+<li>Le TWD est exprimé en degrés.</li>
+<li>Les vitesses (avancement, dérive, TWS) sont exprimées en noeuds.</li>
+<li>Les données flagués [expert] sont cachées par défaut dans le panneau d’administration des bateaux sur la plateforme GameSparks.</li>
+</ul>
+<h1 id="démo">Démo</h1>
+<p><a href="http://pierrerandria.com/BoatTest/">Lien vers la démo</a></p>
+<h1 id="aperçu-du-panneau-dadministration-des-bateaux-sur-la-plateforme-gamesparks">Aperçu du panneau d’administration des bateaux sur la plateforme GameSparks</h1>
+<h2 id="exemple-du-nacra-17">Exemple du Nacra 17:</h2>
+<p><img src="https://user-images.githubusercontent.com/18393283/59673763-27449600-91c2-11e9-962a-62ca89e1bfeb.png" alt="">
+<img src="https://user-images.githubusercontent.com/18393283/59673764-27dd2c80-91c2-11e9-9deb-d9580834b56f.png" alt=""></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rod1992/TestDocFX/blob/master/Documentation/manual/BoatConfig.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Test DocFx Unity Documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

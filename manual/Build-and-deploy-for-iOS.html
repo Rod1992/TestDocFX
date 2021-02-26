@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>1. Build | Test DocFx Unity Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="1. Build | Test DocFx Unity Documentation ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="1-build">1. Build</h1>
+
+<h2 id="unity">Unity</h2>
+<p>Depuis la machine de build: </p>
+<ul>
+<li>Pull de la branche de la version concernée via Github Desktop, SourceTree ou autre</li>
+<li>S’assurer que les numéros de build et de version sont correctement incrémentés: le numéro de version doit être &gt; au dernier uploadé sur l’App store Connect</li>
+<li>S’assurer que vous buildez bien depuis une version PRO d’Unity et que le splash screen est bien configuré dans les player settings.</li>
+<li>Vérifier que l’on est en production en lançant le jeu depuis Unity <ul>
+<li>Si ce n’est pas le cas, ajouter FORCE_PRODUCTION aux Scripting Define Symbols (Player Settings). Peut être ajouté via Utils &gt; Switch Mode &gt; Prod.</li>
+<li>Vérifier à nouveau en lançant le jeu</li>
+</ul>
+</li>
+<li>Builder depuis Unity.</li>
+</ul>
+<h2 id="xcode">XCode</h2>
+<ul>
+<li><p>Ouvrir <strong>%build_folder%/Unity-iPhone.xcworkspace</strong></p>
+</li>
+<li><p>Valider/corriger les project settings tel que le propose Xcode dans le panneau accessible en cliquant l’icône Warning (par défaut dans la barre en haut à gauche de la fenêtre): </p>
+<ul>
+<li>Pods project : Validate Project Settings / Update to recommended settings</li>
+<li>Unity-iPhone project : Validate Project Settings / Update to recommended settings</li>
+</ul>
+</li>
+<li><p>Sur le projet (root dans l’explorateur de projet et target Unity_iPhone), se rendre dans General&gt;Identity vérifier le numéro de version et de build.<br><img src="https://user-images.githubusercontent.com/18393283/59432940-c9dace80-8de8-11e9-9da7-adae81a13fde.png" alt=""><br><img src="https://user-images.githubusercontent.com/18393283/59432950-cc3d2880-8de8-11e9-91ea-f885650545ad.png" alt="">  </p>
+</li>
+<li>Dans Capabilities, activer Background Modes (dans lequel Remote notification doit être coché), Push Notifications, In-App Purchase et Associated Domains (avec l&#39;entrée &quot;applinks:*.virtualregatta.com&quot;) :<br><img src="https://i.imgur.com/KJfBCPe.png" alt=""></li>
+<li>Vérifier dans Info que les deux champs concernant la Privacy sont renseignés tels qu’ajoutés précédemment dans le fichier Info.plist.<br><img src="https://user-images.githubusercontent.com/18393283/59432977-d5c69080-8de8-11e9-86f3-02d5b6a9bbc0.png" alt=""> </li>
+<li>Builder et archiver à l’aide du menu Product&gt;Archive. Une fois l’archivage terminé, l’Organizer devrait s’ouvrir avec l’archive nouvellement créée sélectionnée.<br><img src="https://user-images.githubusercontent.com/18393283/59432978-d5c69080-8de8-11e9-88d3-ff7e44367193.png" alt=""><br>Si ce n’est pas le cas, l’Organizer s’ouvre depuis le menu Window&gt;Organizer<br><img src="https://user-images.githubusercontent.com/18393283/59432980-d5c69080-8de8-11e9-8fbd-e6d3a2c5760c.png" alt="">  </li>
+<li>Pour uploader vers l’App Store depuis l’Organizer, cliquer sur “<em>Distribute App</em>” à droite et suivre la procédure en laissant tout par défaut et en auto-signant de préférence.<br><img src="https://user-images.githubusercontent.com/18393283/59432981-d65f2700-8de8-11e9-95ef-72e2a6adb9fb.png" alt=""><br><img src="https://user-images.githubusercontent.com/18393283/59432982-d65f2700-8de8-11e9-94fb-0ecb2325de59.png" alt="">  </li>
+<li>Patienter</li>
+<li>Garder les différentes options telles quelles &gt; Next</li>
+<li>Upload</li>
+</ul>
+<h1 id="2-publication-app-store">2. Publication App Store</h1>
+<h2 id="testflight">Testflight</h2>
+<p>Sur l’<a href="https://appstoreconnect.apple.com/">App Store connect</a>, aller dans Mes Apps &gt; [App] &gt; Testflight<br>Constater que la version est en cours de vérification.<br>Une fois que c’est terminé, un warning “Attestations manquantes” s’affiche:  </p>
+<ul>
+<li>Cliquer sur le signe warning, puis soumettre les attestations pour l’exportation</li>
+<li>Répondre non puis commencer les tests internes</li>
+<li>Valider la version sur l’iPad</li>
+</ul>
+<h2 id="création-de-la-version">Création de la version</h2>
+<ul>
+<li>Dans l&#39;AppStore: (+) VERSION OU PLATE-FORME</li>
+<li>Remplir le champ “Nouveautés de cette version” dans toutes les langues.</li>
+<li>Vérifier les visuels et en ajouter/supprimer si nécessaire.</li>
+<li>Dans build, rajouter la build souhaitée.</li>
+<li>Faire attention au mode de publication: auto ou manuel</li>
+<li>Valider et répondre Non sur l’identifiant publicitaire: Envoyer</li>
+<li>Si publication manuelle, attente du mail de confirmation d’Apple</li>
+<li>Enjoy!</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rod1992/TestDocFX/blob/master/Documentation/manual/Build-and-deploy-for-iOS.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Test DocFx Unity Documentation
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

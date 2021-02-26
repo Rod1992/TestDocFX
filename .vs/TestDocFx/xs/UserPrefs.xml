@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{7A4CB82C-6BEF-8349-62E9-C518A9B40839}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ExampleScript.cs">
+    <Files>
+      <File FileName="Assets/ExampleScript.cs" Line="38" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TestDocFx" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="ExampleScript.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b46156f6-a083-42c4-bca9-06052c74cbe4" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
