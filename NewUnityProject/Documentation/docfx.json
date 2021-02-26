@@ -62,7 +62,7 @@
             }
         ],
         "sitemap": {
-            "baseUrl": "https://Rod1992.github.io/TestDocFX/",
+            "baseUrl": "https://Rod1992.github.io/TestDocFX/docs",
             "changefreq": "weekly",
             "fileOptions": {
                 "api/*": {
@@ -71,7 +71,7 @@
             }
         },
         "xref": [
-            "https://Rod1992.github.io/TestDocFX/UnityXrefMaps/xrefmap.yml"
+            "https://normanderwan.github.io/UnityXrefMaps/xrefmap.yml"
         ],
         "xrefService": [
             "https://xref.docs.microsoft.com/query?uid={uid}"
