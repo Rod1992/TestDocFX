@@ -1,0 +1,30 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Global
+  name: Global
+  href: api/Global.html
+  name.vb: ''
+  fullName: Global
+  fullName.vb: ''
+  nameWithType: Global
+  nameWithType.vb: ''
+- uid: Global.ExampleScript
+  name: ExampleScript
+  href: api/Global.ExampleScript.html
+  commentId: T:Global.ExampleScript
+  fullName: ExampleScript
+  nameWithType: ExampleScript
+- uid: Global.ExampleScript.Myfunction(System.Boolean,System.Boolean)
+  name: Myfunction(Boolean, Boolean)
+  href: api/Global.ExampleScript.html#Global_ExampleScript_Myfunction_System_Boolean_System_Boolean_
+  commentId: M:Global.ExampleScript.Myfunction(System.Boolean,System.Boolean)
+  fullName: ExampleScript.Myfunction(System.Boolean, System.Boolean)
+  nameWithType: ExampleScript.Myfunction(Boolean, Boolean)
+- uid: Global.ExampleScript.Myfunction*
+  name: Myfunction
+  href: api/Global.ExampleScript.html#Global_ExampleScript_Myfunction_
+  commentId: Overload:Global.ExampleScript.Myfunction
+  isSpec: "True"
+  fullName: ExampleScript.Myfunction
+  nameWithType: ExampleScript.Myfunction
