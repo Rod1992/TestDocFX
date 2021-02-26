@@ -33,4 +33,10 @@ public class ExampleScript : MonoBehaviour
     {
 
     }
+
+
+    public void RodisTheMC(bool yes, bool ofc)
+    {
+
+    }
 }
